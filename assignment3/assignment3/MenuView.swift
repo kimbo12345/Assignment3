@@ -20,8 +20,8 @@ struct MenuView: View {
     }
     
     @State private var movies: [Movie] = [
-        Movie(title: "Inception", description: "A thief who enters the dreams of others to steal their secrets from their subconscious.", length: "2h 28m", ticketPrice: 10.99),
-        Movie(title: "The Shawshank Redemption", description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", length: "2h 22m", ticketPrice: 9.99),
+        Movie(title: "Parasite", description: "The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.", length: "2h 12m", ticketPrice: 10.99),
+        Movie(title: "Burning", description: "Lee Jong-Su, a young author, meets and falls for his childhood friend Shin Hae-mi. Later, she introduces him to Ben, a mysterious man who has a strange hobby, leading to chilling circumstances.", length: "2h 28m", ticketPrice: 9.99),
         Movie(title: "The Dark Knight", description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", length: "2h 32m", ticketPrice: 12.99)
     ]
     
