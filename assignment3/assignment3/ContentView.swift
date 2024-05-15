@@ -51,7 +51,7 @@ struct ContentView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Login")
+            .navigationTitle("CineBook Login")
         }
     }
 }
