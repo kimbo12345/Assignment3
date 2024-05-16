@@ -10,6 +10,15 @@
 		E551503D2BE8F90100488108 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551503C2BE8F90000488108 /* MenuView.swift */; };
 		E55150412BEDE12B00488108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E55150402BEDE12B00488108 /* Assets.xcassets */; };
 		E55150432BEDF6E100488108 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55150422BEDF6E000488108 /* MovieView.swift */; };
+		E55906672BF4A09800015A8F /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906622BF4A09600015A8F /* ConfirmationView.swift */; };
+		E55906682BF4A09800015A8F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906632BF4A09700015A8F /* PaymentView.swift */; };
+		E55906692BF4A09800015A8F /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906642BF4A09700015A8F /* Seat.swift */; };
+		E559066A2BF4A09800015A8F /* SeatSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906652BF4A09700015A8F /* SeatSelectionView.swift */; };
+		E559066C2BF5ABA300015A8F /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559066B2BF5ABA300015A8F /* TimeSelectionView.swift */; };
+		E559066E2BF5B39400015A8F /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559066D2BF5B39400015A8F /* BottomNavBar.swift */; };
+		E55906702BF5B3E000015A8F /* PreviousBookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559066F2BF5B3E000015A8F /* PreviousBookingsView.swift */; };
+		E55906722BF5B3F600015A8F /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906712BF5B3F600015A8F /* MoreView.swift */; };
+		E55906742BF5C18700015A8F /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55906732BF5C18700015A8F /* Booking.swift */; };
 		E56DC3AF2BE8D4E300F3E405 /* assignment3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DC3AE2BE8D4E300F3E405 /* assignment3App.swift */; };
 		E56DC3B12BE8D4E300F3E405 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56DC3B02BE8D4E300F3E405 /* ContentView.swift */; };
 		E56DC3B62BE8D4F800F3E405 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56DC3B52BE8D4F800F3E405 /* Preview Assets.xcassets */; };
@@ -36,6 +45,15 @@
 		E551503C2BE8F90000488108 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E55150402BEDE12B00488108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E55150422BEDF6E000488108 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		E55906622BF4A09600015A8F /* ConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		E55906632BF4A09700015A8F /* PaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		E55906642BF4A09700015A8F /* Seat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		E55906652BF4A09700015A8F /* SeatSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatSelectionView.swift; sourceTree = "<group>"; };
+		E559066B2BF5ABA300015A8F /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
+		E559066D2BF5B39400015A8F /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
+		E559066F2BF5B3E000015A8F /* PreviousBookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousBookingsView.swift; sourceTree = "<group>"; };
+		E55906712BF5B3F600015A8F /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		E55906732BF5C18700015A8F /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		E56DC3AB2BE8D4E300F3E405 /* assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56DC3AE2BE8D4E300F3E405 /* assignment3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3App.swift; sourceTree = "<group>"; };
 		E56DC3B02BE8D4E300F3E405 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,7 +113,16 @@
 				E56DC3B02BE8D4E300F3E405 /* ContentView.swift */,
 				E551503C2BE8F90000488108 /* MenuView.swift */,
 				E55150422BEDF6E000488108 /* MovieView.swift */,
+				E55906622BF4A09600015A8F /* ConfirmationView.swift */,
+				E55906632BF4A09700015A8F /* PaymentView.swift */,
+				E55906642BF4A09700015A8F /* Seat.swift */,
+				E55906652BF4A09700015A8F /* SeatSelectionView.swift */,
+				E559066B2BF5ABA300015A8F /* TimeSelectionView.swift */,
+				E559066D2BF5B39400015A8F /* BottomNavBar.swift */,
 				E56DC3B42BE8D4F800F3E405 /* Preview Content */,
+				E559066F2BF5B3E000015A8F /* PreviousBookingsView.swift */,
+				E55906712BF5B3F600015A8F /* MoreView.swift */,
+				E55906732BF5C18700015A8F /* Booking.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -238,8 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E559066C2BF5ABA300015A8F /* TimeSelectionView.swift in Sources */,
 				E56DC3B12BE8D4E300F3E405 /* ContentView.swift in Sources */,
+				E55906702BF5B3E000015A8F /* PreviousBookingsView.swift in Sources */,
+				E559066E2BF5B39400015A8F /* BottomNavBar.swift in Sources */,
+				E55906672BF4A09800015A8F /* ConfirmationView.swift in Sources */,
+				E55906692BF4A09800015A8F /* Seat.swift in Sources */,
 				E551503D2BE8F90100488108 /* MenuView.swift in Sources */,
+				E55906722BF5B3F600015A8F /* MoreView.swift in Sources */,
+				E55906682BF4A09800015A8F /* PaymentView.swift in Sources */,
+				E55906742BF5C18700015A8F /* Booking.swift in Sources */,
+				E559066A2BF4A09800015A8F /* SeatSelectionView.swift in Sources */,
 				E55150432BEDF6E100488108 /* MovieView.swift in Sources */,
 				E56DC3AF2BE8D4E300F3E405 /* assignment3App.swift in Sources */,
 			);

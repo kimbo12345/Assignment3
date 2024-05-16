@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MenuView: View {
     var username: String
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     struct Movie: Identifiable, Hashable {
         var id = UUID()
@@ -25,6 +26,7 @@ struct MenuView: View {
         Movie(title: "Burning (2018)", description: "Lee Jong-Su, a young author, meets and falls for his childhood friend Shin Hae-mi. Later, she introduces him to Ben, a mysterious man who has a strange hobby, leading to chilling circumstances.", length: "2h 22m", rating: "MA15+", imageName: "image2"),
         Movie(title: "OldBoy (2003)", description: "A man, held captive for no apparent reason for years, is given a cell phone, money and expensive clothes and released. Unless he finds out the identity of his captor, an even worse fate awaits him.", length: "2h 12m", rating: "R18+", imageName: "image3")
     ]
+    
     
     var body: some View {
         NavigationView {
@@ -66,19 +68,28 @@ struct MenuView: View {
                                     }
                                 }
                                 .padding(.vertical, 10)
+                                
                             }
                         }
                     }
                 }
                 
                 Spacer()
+                Button("Logout") {
+                    presentationMode.wrappedValue.dismiss() // Dismiss the MovieView
+        
+    }
             }
             .padding()
             .navigationTitle("Movies")
+            
         }
         .navigationBarBackButtonHidden(true) // Hide the back button label
+        
+        BottomNavBar(username:username)
     }
 }
+
 
 
 struct TicketDetailsView: View {

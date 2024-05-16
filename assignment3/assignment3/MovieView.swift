@@ -20,7 +20,6 @@ enum TicketType: String, CaseIterable {
     case concession = "Concession"
 }
 
-
 struct MovieView: View {
     var username: String
     var movie: MenuView.Movie
@@ -32,9 +31,7 @@ struct MovieView: View {
     let movieImages: [String: String] = [
         "Parasite (2019)": "image1",
         "Burning (2018)": "image2",
-        "Oldboy (2003)": "image3",
-        // Add more mappings as needed
-    ]
+        "OldBoy (2003)": "image3"]
     
     // Total price calculation
     var totalPrice: Double {
@@ -45,67 +42,77 @@ struct MovieView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack {
-                // Movie Poster
-                if let imageName = movieImages[movie.title] {
-                    Image(imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 300)
-                        .padding(.bottom)
-                } else {
-                    Text("No poster available.")
-                }
-
-                Text("\(movie.description)")
-                    .font(.subheadline)
-                    .padding(.horizontal) // Add horizontal padding for better readability
-                Spacer()
-                Text("Duration: \(movie.length)")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                Spacer()
-                
-                // Ticket Quantity Steppers
+        NavigationView {
+            ScrollView {
                 VStack {
-                    HStack {
-                        Stepper("Kids (\(kidsQuantity))", value: $kidsQuantity, in: 0...10)
+                    // film poster
+                    Text("\(movie.title)")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                    if let imageName = movieImages[movie.title] {
+                        Image(imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 300)
+                            .padding(.bottom)
                         Spacer()
-                    }.padding(.vertical)
+                    } else {
+                        Text("No poster available.")
+                    }
+                    Text("\(movie.description)")
+                        .font(.subheadline)
+                        .padding(.horizontal) // Add horizontal padding for better readability
+                    Spacer()
+                    Text("Duration: \(movie.length)")
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                    Spacer()
                     
-                    HStack {
-                        Stepper("Adults (\(adultsQuantity))", value: $adultsQuantity, in: 0...10)
-                        Spacer()
-                    }.padding(.vertical)
+                    // Ticket Quantity Steppers
+                    VStack {
+                        HStack {
+                            Stepper("Kids (\(kidsQuantity))", value: $kidsQuantity, in: 0...10)
+                            Spacer()
+                        }.padding(.vertical)
+                        
+                        HStack {
+                            Stepper("Adults (\(adultsQuantity))", value: $adultsQuantity, in: 0...10)
+                            Spacer()
+                        }.padding(.vertical)
+                        
+                        HStack {
+                            Stepper("Concession (\(concessionQuantity))", value: $concessionQuantity, in: 0...10)
+                            Spacer()
+                        }.padding(.vertical)
+                    }
                     
-                    HStack {
-                        Stepper("Concession (\(concessionQuantity))", value: $concessionQuantity, in: 0...10)
-                        Spacer()
-                    }.padding(.vertical)
-                }
-                
-                // Total Price
-                Text("Total Price: $\(totalPrice, specifier: "%.2f")")
-                    .font(.headline)
-                    .padding()
-                
-                // Button to Select Seats
-                Button(action: {
-                    // Handle action to select seats
-                }) {
-                    Text("Select Seats")
-                        .foregroundColor(.white)
+                    // Total Price
+                    Text("Total Price: $\(totalPrice, specifier: "%.2f")")
+                        .font(.headline)
                         .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                    
+                    // Button to Select Seats
+                    NavigationLink(destination: TimeSelectionView(username: username, movie: movie, kidsQuantity: kidsQuantity, adultsQuantity: adultsQuantity, concessionQuantity: concessionQuantity)) {
+                        Text("Select Seats")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            
+                    }
+                    .padding()
+                    .disabled(kidsQuantity + adultsQuantity + concessionQuantity == 0) // Disable the button if no tickets are chosen
+                    .opacity(kidsQuantity + adultsQuantity + concessionQuantity == 0 ? 0.5 : 1.0)
+
+                    
+                    Spacer()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarHidden(true)
                 }
                 .padding()
-                
-                Spacer()
-            }
-            .padding()
-            .navigationTitle("\(movie.title)")
+                .navigationTitle("\(movie.title)")
+            }.navigationBarTitleDisplayMode(.inline)
         }
     }
 }
