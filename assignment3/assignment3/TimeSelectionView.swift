@@ -2,7 +2,7 @@
 //  TimeSelectionView.swift
 //  assignment3
 //
-//  Created by Dannii Huynh on 16/5/2024.
+//  Created by Jerry Lo on 16/5/2024.
 //
 
 import SwiftUI
