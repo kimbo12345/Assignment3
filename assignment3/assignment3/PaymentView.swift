@@ -1,4 +1,10 @@
-//This is the payment options
+//
+//  PaymentView.swift
+//  assignment3
+//
+//  Created by Hyunmin Kim on 11/5/2024.
+//
+
 import SwiftUI
 
 struct PaymentView: View {
@@ -15,6 +21,10 @@ struct PaymentView: View {
     @State private var expirationDate = ""
     @State private var cvv = ""
 
+    // check if the fields have any data or text in them
+    private var isPaymentInfoComplete: Bool {
+        !cardNumber.isEmpty && !expirationDate.isEmpty && !cvv.isEmpty
+    }
     
     var body: some View {
         VStack(spacing: 20) {
@@ -26,20 +36,26 @@ struct PaymentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("CVV", text: $cvv)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            NavigationLink("Confirm Payment", destination: ConfirmationView(
-                username: username,
-                movie: movie,
-                kidsQuantity: kidsQuantity,
-                adultsQuantity: adultsQuantity,
-                concessionQuantity: concessionQuantity,
-                selectedSeats: selectedSeats,
-                selectedTime: selectedTime
-                
-            ))
+            NavigationLink(
+                destination: ConfirmationView(
+                    username: username,
+                    movie: movie,
+                    kidsQuantity: kidsQuantity,
+                    adultsQuantity: adultsQuantity,
+                    concessionQuantity: concessionQuantity,
+                    selectedSeats: selectedSeats,
+                    selectedTime: selectedTime
+                )
+            ) {
+                Text("Confirm Payment")
+            }
+            .disabled(!isPaymentInfoComplete)
             .navigationBarBackButtonHidden(true)
             Spacer()
-        }.padding()
+        }
+        .padding()
     }
 }
+
 
 

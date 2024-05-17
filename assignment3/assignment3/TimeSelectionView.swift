@@ -1,5 +1,12 @@
+//
+//  TimeSelectionView.swift
+//  assignment3
+//
+//  Created by Jerry Lo on 12/5/2024.
+//
+
 import SwiftUI
-//Information for time selection
+// info for time selection
 struct TimeSelectionView: View {
     var username: String
     var movie: MenuView.Movie
@@ -14,11 +21,32 @@ struct TimeSelectionView: View {
                 .font(.headline)
                 .padding()
             
-            List(movieTimes, id: \.self) { time in
-                NavigationLink(time, destination: SeatSelectionView(username: username, movie: movie, kidsQuantity: kidsQuantity, adultsQuantity: adultsQuantity, concessionQuantity: concessionQuantity, selectedTime: time))
+            VStack(spacing: 20) {
+                ForEach(movieTimes, id: \.self) { time in
+                    NavigationLink(destination: SeatSelectionView(
+                        username: username,
+                        movie: movie,
+                        kidsQuantity: kidsQuantity,
+                        adultsQuantity: adultsQuantity,
+                        concessionQuantity: concessionQuantity,
+                        selectedTime: time
+                    )) {
+                        Text(time)
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                    }
+                }
             }
-            .navigationBarBackButtonHidden(true)
+            .padding(.horizontal)
+            
+            Spacer()
         }
+        .padding()
         .navigationTitle("Movie Times")
         .navigationBarBackButtonHidden(true)
     }

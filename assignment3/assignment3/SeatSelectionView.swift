@@ -1,3 +1,11 @@
+//
+//  SeatSelectionView.swift
+//  assignment3
+//
+//  Created by Hyunmin Kim on 11/5/2024.
+//
+
+
 import Foundation
 
 import SwiftUI
@@ -27,29 +35,47 @@ struct SeatSelectionView: View {
                 .font(.headline)
                 .padding()
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 5), spacing: 10) {
-                ForEach($seats.indices, id: \.self) { index in
-                    Button(action: {
-                        if selectedSeats.count < kidsQuantity + adultsQuantity + concessionQuantity {
-                            seats[index].isSelected.toggle()
-                            if seats[index].isSelected {
-                                selectedSeats.append(index)
-                            } else {
+            // Header row
+            HStack {
+                Text("")
+                    .frame(width: 50, height: 50)
+                ForEach(1..<6) { number in
+                    Text("\(number)")
+                        .frame(width: 50, height: 50)
+                        .font(.subheadline)
+                }
+            }
+            
+            // Seat grid with leading column
+            ForEach(0..<6) { row in
+                HStack {
+                    Text("\(String(UnicodeScalar(65 + row)!))")
+                        .frame(width: 50, height: 50)
+                        .font(.subheadline)
+                    ForEach(0..<5) { column in
+                        let index = row * 5 + column
+                        Button(action: {
+                            if selectedSeats.count < kidsQuantity + adultsQuantity + concessionQuantity {
+                                seats[index].isSelected.toggle()
+                                if seats[index].isSelected {
+                                    selectedSeats.append(index)
+                                } else {
+                                    selectedSeats.removeAll { $0 == index }
+                                }
+                            } else if selectedSeats.contains(index) {
+                                seats[index].isSelected.toggle()
                                 selectedSeats.removeAll { $0 == index }
                             }
-                        } else if selectedSeats.contains(index) {
-                            seats[index].isSelected.toggle()
-                            selectedSeats.removeAll { $0 == index }
+                        }) {
+                            Rectangle()
+                                .fill(seats[index].isSelected ? Color.blue : Color.gray)
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(8)
+                                .shadow(radius: 3)
                         }
-                    }) {
-                        Rectangle()
-                            .fill(seats[index].isSelected ? Color.blue : Color.gray)
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(8)
-                            .shadow(radius: 3)
-                            .disabled(selectedSeats.count == kidsQuantity + adultsQuantity + concessionQuantity && !selectedSeats.contains(index))
+                        .disabled(selectedSeats.count == kidsQuantity + adultsQuantity + concessionQuantity && !selectedSeats.contains(index))
                     }
-                }.navigationBarBackButtonHidden(true)
+                }
             }
             
             Text("Selected Seats: \(selectedSeats.count) - Total: $\(totalPrice, specifier: "%.2f")")
@@ -68,5 +94,6 @@ struct SeatSelectionView: View {
             ))
             .disabled(selectedSeats.count != kidsQuantity + adultsQuantity + concessionQuantity)
         }
+        .padding()
     }
 }

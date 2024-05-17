@@ -1,3 +1,11 @@
+//
+//  ConfirmationView.swift
+//  assignment3
+//
+//  Created by Bill Huynh on 12/5/2024.
+//
+
+
 import SwiftUI
 
 struct ConfirmationView: View {
@@ -31,14 +39,14 @@ struct ConfirmationView: View {
             .cornerRadius(10)
             
             NavigationLink(destination: MenuView(username: username)) {
-                Text("Confirm and Go Back To Menu")
+                Text("Home Screen")
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(10)
             }
             .padding(.top, 20)
-            
+            .navigationBarBackButtonHidden(true)
         }
         .padding()
         .navigationBarBackButtonHidden(true)
