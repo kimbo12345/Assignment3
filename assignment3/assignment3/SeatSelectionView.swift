@@ -1,10 +1,3 @@
-//
-//  1.swift
-//  assignment3
-//
-//  Created by Hyunmin Kim on 12/5/2024.
-//
-
 import Foundation
 
 import SwiftUI

@@ -1,10 +1,3 @@
-//
-//  3.swift
-//  assignment3
-//
-//  Created by Hyunmin Kim on 12/5/2024.
-//
-
 import SwiftUI
 
 struct ConfirmationView: View {
@@ -18,16 +11,39 @@ struct ConfirmationView: View {
     
     var body: some View {
         VStack {
-            Text("Reservation Confirmation").font(.headline)
-            Text("Movie: \(movie.title)")
-            Text("Time: \(selectedTime)")
-            Text("Seats: \(selectedSeats.count)")
-            Text("Total Price: $\(calculateTotalPrice())")
-            Button("Complete Reservation") {
-                print("Reservation Completed.")
+            Text("Reservation Confirmation")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Movie: \(movie.title)")
+                    .font(.headline)
+                Text("Time: \(selectedTime)")
+                    .font(.headline)
+                Text("Seats: \(selectedSeats.count)")
+                    .font(.headline)
+                Text("Total Price: $\(calculateTotalPrice())")
+                    .font(.headline)
             }
-        }.padding()
+            .padding()
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(10)
+            
+            NavigationLink(destination: MenuView(username: username)) {
+                Text("Confirm and Go Back To Menu")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 20)
+            
+        }
+        .padding()
+        .navigationBarBackButtonHidden(true)
     }
+    
     
     func calculateTotalPrice() -> Double {
         let kidsPrice = Double(kidsQuantity) * 9.99

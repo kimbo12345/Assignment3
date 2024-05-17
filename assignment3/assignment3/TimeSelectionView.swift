@@ -1,12 +1,5 @@
-//
-//  TimeSelectionView.swift
-//  assignment3
-//
-//  Created by Jerry Lo on 16/5/2024.
-//
-
 import SwiftUI
-
+//Information for time selection
 struct TimeSelectionView: View {
     var username: String
     var movie: MenuView.Movie

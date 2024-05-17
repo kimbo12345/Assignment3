@@ -1,16 +1,8 @@
-//
-//  MenuView.swift
-//  assignment3
-//
-//  Created by Jerry Lo on 10/5/2024.
-//
-
-
 import SwiftUI
 
 struct MenuView: View {
     var username: String
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     struct Movie: Identifiable, Hashable {
         var id = UUID()
@@ -20,7 +12,7 @@ struct MenuView: View {
         var rating: String
         var imageName: String // Add imageName property for movie poster
     }
-    
+    //Information for the movies
     @State private var movies: [Movie] = [
         Movie(title: "Parasite (2019)", description: "The struggling Kim family sees an opportunity when the son starts for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.", length: "2h 28m", rating: "MA15+", imageName: "image1"),
         Movie(title: "Burning (2018)", description: "Lee Jong-Su, a young author, meets and falls for his childhood friend Shin Hae-mi. Later, she introduces him to Ben, a mysterious man who has a strange hobby, leading to chilling circumstances.", length: "2h 22m", rating: "MA15+", imageName: "image2"),
@@ -34,20 +26,16 @@ struct MenuView: View {
                 Text("Welcome, \(username)")
                     .font(.title)
                     .padding()
-                
+                    .navigationBarBackButtonHidden(true)
                 ScrollView {
                     ForEach(movies) { movie in
                         NavigationLink(destination: MovieView(username: username, movie: movie)) {
                             VStack(alignment: .leading) {
                                 HStack {
-                                    if let imageName = movie.imageName {
-                                        Image(imageName) // Movie Poster
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 150, height: 200)
-                                    } else {
-                                        Text("No Image Available")
-                                    }
+                                    Image(movie.imageName) // Movie Poster
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 150, height: 200)
                                     
                                     VStack(alignment: .leading) {
                                         Text(movie.title)
@@ -75,23 +63,25 @@ struct MenuView: View {
                 }
                 
                 Spacer()
-                Button("Logout") {
-                    presentationMode.wrappedValue.dismiss() // Dismiss the MovieView
-        
-    }
+                    .navigationBarBackButtonHidden(true)
             }
             .padding()
             .navigationTitle("Movies")
+            .navigationBarBackButtonHidden(true) // Hide the back button label
             
-        }
-        .navigationBarBackButtonHidden(true) // Hide the back button label
-        
-        BottomNavBar(username:username)
+            BottomNavBar(username:username)
+            
+            .padding() // Add padding to the button
+            .foregroundColor(.white) // Set text color to white
+            .background(Color.blue) // Set background color to blue
+            .cornerRadius(10) // Round the corners of the button
+            .padding() // Add more padding for better spacing
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
 
-
+//Details for the ticket
 struct TicketDetailsView: View {
     var username: String
     var movieTitle: String
@@ -110,6 +100,7 @@ struct TicketDetailsView: View {
                 .padding()
             
             Spacer()
+            
         }
         .navigationTitle("Ticket Details")
     }

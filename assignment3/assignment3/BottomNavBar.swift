@@ -1,15 +1,9 @@
-//
-//  BottomNavBar.swift
-//  assignment3
-//
-//  Created by Jerry Lo on 16/5/2024.
-//
-
 import SwiftUI
 
 struct BottomNavBar: View {
     var username: String
     
+    //Navigation 
     var body: some View {
         HStack {
             NavigationLink(destination: MenuView(username: username)) {

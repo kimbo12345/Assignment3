@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  assignment3
-//
-//  Created by Jerry Lo on 10/5/2024.
-//
-
 
 import SwiftUI
 
@@ -53,5 +46,10 @@ struct ContentView: View {
             .padding()
             .navigationTitle("CineBook Login")
         }
+    }
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

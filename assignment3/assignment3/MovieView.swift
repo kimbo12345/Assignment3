@@ -1,10 +1,4 @@
-//
-//  MovieView.swift
-//  assignment3
-//
-//  Created by Jerry Lo on 10/5/2024.
-//
-
+//The View for the Movies
 import SwiftUI
 
 struct Movie {
@@ -84,6 +78,7 @@ struct MovieView: View {
                             Stepper("Concession (\(concessionQuantity))", value: $concessionQuantity, in: 0...10)
                             Spacer()
                         }.padding(.vertical)
+                            .navigationBarBackButtonHidden(true)
                     }
                     
                     // Total Price

@@ -1,10 +1,4 @@
-//
-//  2.swift
-//  assignment3
-//
-//  Created by Hyunmin Kim on 12/5/2024.
-//
-
+//This is the payment options
 import SwiftUI
 
 struct PaymentView: View {
@@ -21,6 +15,7 @@ struct PaymentView: View {
     @State private var expirationDate = ""
     @State private var cvv = ""
 
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Enter Payment Information").font(.headline)
@@ -39,7 +34,9 @@ struct PaymentView: View {
                 concessionQuantity: concessionQuantity,
                 selectedSeats: selectedSeats,
                 selectedTime: selectedTime
+                
             ))
+            .navigationBarBackButtonHidden(true)
             Spacer()
         }.padding()
     }
